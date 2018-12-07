@@ -1,6 +1,6 @@
 # dice-game
 
-### A quick little dice game where 2 players take turns rolling and accumulating points until a player reaches 100 first!
+### A web application dice game where 2 players take turns rolling and accumulating points until a player reaches 100 first!
 
 #### [LiveDemo](https://devinleejones.github.io/dice-game/)
 
