@@ -9,42 +9,49 @@ GAME RULES:
 
 */
 
-let scores, roundScore, activePlayer
+let scores, roundScore, activePlayer, gameIsBeingPlayed
 
 gameInitializer()
 
 document.querySelector('.btn-roll').addEventListener('click', function() {
-  let dice = Math.floor(Math.random() * 6) + 1
+  if (gameIsBeingPlayed) {
+    let dice = Math.floor(Math.random() * 6) + 1
 
-  let diceDom = document.querySelector('.dice')
-  diceDom.style.display = 'block'
-  diceDom.src = 'dice-' + dice + '.png'
+    let diceDom = document.querySelector('.dice')
+    diceDom.style.display = 'block'
+    diceDom.src = 'dice-' + dice + '.png'
 
-  if (dice !== 1) {
-    roundScore += dice
-    document.querySelector('#current-' + activePlayer).textContent = roundScore
-  } else {
-    nextPlayer()
+    if (dice !== 1) {
+      roundScore += dice
+      document.querySelector(
+        '#current-' + activePlayer
+      ).textContent = roundScore
+    } else {
+      nextPlayer()
+    }
   }
 })
 
 document.querySelector('.btn-hold').addEventListener('click', function() {
-  scores[activePlayer] += roundScore
+  if (gameIsBeingPlayed) {
+    scores[activePlayer] += roundScore
 
-  document.querySelector('#score-' + activePlayer).textContent =
-    scores[activePlayer]
+    document.querySelector('#score-' + activePlayer).textContent =
+      scores[activePlayer]
 
-  if (scores[activePlayer] >= 10) {
-    document.querySelector('#name-' + activePlayer).textContent = 'WINNER!'
-    document.querySelector('.dice').style.display = 'none'
-    document
-      .querySelector('.player-' + activePlayer + '-panel')
-      .classList.add('winner')
-    document
-      .querySelector('.player-' + activePlayer + '-panel')
-      .classList.remove('active')
-  } else {
-    nextPlayer()
+    if (scores[activePlayer] >= 20) {
+      document.querySelector('#name-' + activePlayer).textContent = 'WINNER!'
+      document.querySelector('.dice').style.display = 'none'
+      document
+        .querySelector('.player-' + activePlayer + '-panel')
+        .classList.add('winner')
+      document
+        .querySelector('.player-' + activePlayer + '-panel')
+        .classList.remove('active')
+      gameIsBeingPlayed = false
+    } else {
+      nextPlayer()
+    }
   }
 })
 
@@ -66,6 +73,7 @@ function gameInitializer() {
   scores = [0, 0]
   activePlayer = 0
   roundScore = 0
+  gameIsBeingPlayed = true
 
   document.querySelector('.dice').style.display = 'none'
 
