@@ -7,7 +7,7 @@
 # Technologies
 - JavaScript
 - HTML5
-- CSSS3
+- CSS3
 # Usage 
 Clone and install dependencies.
 ```
