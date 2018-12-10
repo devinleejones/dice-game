@@ -28,7 +28,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgb(130, 130, 130);
+  background-color: rgb(179, 179, 179);
   box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
   overflow: hidden;
 }
@@ -52,7 +52,7 @@ body {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-weight: 100;
+  font-weight: 500;
   margin-top: 20px;
   margin-bottom: 10px;
   position: relative;
@@ -67,7 +67,7 @@ body {
 }
 
 .active { background-color: black; }
-.active .player-name { font-weight: 300; }
+.active .player-name { font-weight: 800; }
 
 .active .player-name::after {
   content: "\2022";
